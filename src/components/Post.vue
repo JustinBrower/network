@@ -1,20 +1,25 @@
 <template>
   <div class="post-size bg-light justify-content-center">
-    <img
-      class="profile-pic pe-2"
-      :src="post.creator.picture"
-      alt="profile_picture"
-    />
-    <p @click="GoTo('Profile')">{{ post.creator.name }}</p>
+    <router-link
+      :to="{ name: 'Profile', params: { creatorId: post.creatorId } }"
+    >
+      <img
+        class="profile-pic pe-2"
+        :src="post.creator.picture"
+        alt="profile_picture"
+      />
+      <p>{{ post.creator.name }}</p>
+    </router-link>
     <p>{{ post.body }}</p>
+    <div class="d-flex justify-content-end pe-4">
+      <p class="mdi mdi-heart pe-1"></p>
+      <p>{{ post.likes.length }}</p>
+    </div>
   </div>
 </template>
 
 
 <script>
-import { computed } from "@vue/reactivity";
-import { postsService } from "../services/PostsService";
-import { AppState } from "../AppState";
 export default {
   props: {
     post: {
@@ -22,13 +27,7 @@ export default {
       required: true,
     },
   },
-  setup(props) {
-    return {
-      setActive() {
-        postsService.setActive(props.post);
-      },
-    };
-  },
+  setup(props) {},
 };
 </script>
 
