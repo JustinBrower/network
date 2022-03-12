@@ -1,5 +1,10 @@
 <template>
   <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <Create v-if="account.id == $route.params.creatorId" />
+      </div>
+    </div>
     <div class="row">
       <div v-for="p in posts" :key="p.id" class="p-3 justify-content-center">
         <Post :post="p" />
@@ -31,6 +36,7 @@ export default {
     });
     return {
       posts: computed(() => AppState.posts),
+      account: computed(() => AppState.account),
     };
   },
 };

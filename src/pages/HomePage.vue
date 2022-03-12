@@ -1,6 +1,11 @@
 <template>
   <div class="container-fluid">
     <div class="row">
+      <div class="col-6">
+        <Create />
+      </div>
+    </div>
+    <div class="row">
       <div v-for="p in posts" :key="p.id" class="p-3 justify-content-center">
         <Post :post="p" />
       </div>
