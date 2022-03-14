@@ -101,7 +101,4 @@ export default {
     }
   }
 }
-// .profile-height {
-//   height: 50vh;
-// }
 </style>

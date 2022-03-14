@@ -1,4 +1,8 @@
 <template>
+  <!-- <div
+    class="container-fluid img-fluid"
+    :style="background-image: url(profile.coverImg);"
+  ></div> -->
   <div class="container-fluid p-0 profile-height">
     <div class="d-flex justify-content-start mt-1">
       <div class="d-flex justify-content-start">
