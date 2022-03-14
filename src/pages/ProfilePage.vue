@@ -7,9 +7,7 @@
       <div class="col-6">
         <Create v-if="account.id == $route.params.creatorId" />
       </div>
-      <div class="col-3 text center">
-        {{ profile.name }}
-      </div>
+      <div class="col-3 text center"></div>
     </div>
     <div class="row p-3 justify-content-center" v-for="p in posts" :key="p.id">
       <Post :post="p" />

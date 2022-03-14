@@ -19,7 +19,7 @@ export default {
     },
   },
   setup(props) {
-    // logger.log(props.billboards.banner);
+    logger.log(props.billboards.banner);
     return {
       billboards: computed(() => AppState.billboards),
     };
