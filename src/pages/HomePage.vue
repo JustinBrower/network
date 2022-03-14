@@ -1,9 +1,13 @@
 <template>
   <div class="container-fluid bg-primary">
-    <div class="row d-flex justify-content-center">
+    <div class="row justify-content-center">
+      <div class="col-3 bg-light">
+        <ProfileUser />
+      </div>
       <div class="col-6">
         <Create />
       </div>
+      <div class="col-3"></div>
     </div>
     <div
       class="row p-3 d-flex justify-content-center"
