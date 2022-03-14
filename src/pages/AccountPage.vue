@@ -21,6 +21,8 @@
         <input v-model="editable.resume" type="text" name="resume" />
         <label class="p-1" for="class">Class</label>
         <input v-model="editable.class" type="text" name="class" />
+        <label class="p-1" for="class">Graduated</label>
+        <input @click="setGraduated" type="checkbox" name="graduated" />
         <div class="p-2 text-center">
           <button class="btn btn-info">Edit Profile</button>
         </div>
@@ -49,6 +51,13 @@ export default {
       async editAccount() {
         try {
           await accountService.editAccount(editable.value);
+        } catch (error) {
+          Pop.toast(error.message, "error");
+        }
+      },
+      async setGraduated() {
+        try {
+          await accountService.setGraduated();
         } catch (error) {
           Pop.toast(error.message, "error");
         }

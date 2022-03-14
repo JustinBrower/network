@@ -18,6 +18,16 @@ class AccountService {
     AppState.profile = res.data
     Pop.toast("Account was Edited")
   }
+
+  async setGraduated() {
+    if (AppState.account.graduated == true) {
+      AppState.account.graduated = false
+    } else {
+      AppState.account.graduated = true
+    }
+    // logger.log("Changed", AppState.account.graduated)
+    AppState.account = AppState.account
+  }
 }
 
 export const accountService = new AccountService()
