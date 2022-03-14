@@ -2,9 +2,11 @@
   <header>
     <Navbar />
   </header>
-  <div class="row">
-    <div class="col-6" v-for="b in billboards" :key="b.banner">
-      <Billboard :billboards="b" />
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-6" v-for="b in billboards" :key="b.banner">
+        <Billboard :billboards="b" />
+      </div>
     </div>
   </div>
   <main>

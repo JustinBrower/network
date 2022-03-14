@@ -7,7 +7,7 @@
       <div class="col-6">
         <Create v-if="account.id == $route.params.creatorId" />
       </div>
-      <div class="col-3">
+      <div class="col-3 text center">
         {{ profile.name }}
       </div>
     </div>

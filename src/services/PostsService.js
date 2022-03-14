@@ -57,6 +57,12 @@ class PostsService {
         AppState.olderPage = res.data.older
     }
 
+    async search(query) {
+        logger.log("query is...", query)
+        const res = await api.get('/api/posts' + '?query=' + query)
+        AppState.posts = res.data
+
+    }
 }
 
 export const postsService = new PostsService()

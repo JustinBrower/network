@@ -1,8 +1,10 @@
 <template>
+  <!-- /No idea why this doesn't show up -->
   <div>
     <img :src="billboards.banner" alt="billboard" />
   </div>
 </template>
+
 
 
 <script>
