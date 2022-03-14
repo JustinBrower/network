@@ -7,7 +7,10 @@
       <div class="col-6">
         <Create />
       </div>
-      <div class="col-3"></div>
+      <div class="col-3">
+        <div class="row" v-for="b in billboards" :key="b.index"></div>
+        <Billboard :billboard="b" />
+      </div>
     </div>
     <div
       class="row p-3 d-flex justify-content-center"
@@ -38,6 +41,7 @@ export default {
     });
     return {
       posts: computed(() => AppState.posts),
+      billboards: computed(() => AppState.billboards),
     };
   },
 };

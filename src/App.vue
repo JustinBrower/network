@@ -11,11 +11,17 @@
 </template>
 
 <script>
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 import { AppState } from "./AppState";
+import { billboardsService } from "./services/BillboardsService";
 export default {
   name: "App",
   setup() {
+    onMounted(async () => {
+      try {
+        await billboardsService.getBillboards();
+      } catch (error) {}
+    });
     return {
       appState: computed(() => AppState),
     };

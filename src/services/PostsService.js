@@ -14,6 +14,7 @@ class PostsService {
         const res = await api.get('api/posts')
         AppState.posts = res.data.posts
         logger.log("Posts are...", AppState.posts)
+        logger.log('Account is...', AppState.account)
     }
 
     async getPostsById(id) {
