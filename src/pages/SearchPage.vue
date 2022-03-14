@@ -14,7 +14,13 @@
 import { computed, onMounted } from "@vue/runtime-core";
 import { AppState } from "../AppState";
 export default {
-  setup() {
+  props: {
+    posts: {
+      type: Object,
+      required: true,
+    },
+  },
+  setup(props) {
     return {
       posts: computed(() => AppState.posts),
     };
