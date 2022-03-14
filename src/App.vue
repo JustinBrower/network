@@ -2,6 +2,11 @@
   <header>
     <Navbar />
   </header>
+  <div class="row">
+    <div class="col-6" v-for="b in billboards" :key="b.banner">
+      <Billboard :billboards="b" />
+    </div>
+  </div>
   <main>
     <router-view />
   </main>
@@ -14,16 +19,19 @@
 import { computed, onMounted } from "vue";
 import { AppState } from "./AppState";
 import { billboardsService } from "./services/BillboardsService";
+import Pop from "./utils/Pop";
 export default {
   name: "App",
   setup() {
     onMounted(async () => {
       try {
         await billboardsService.getBillboards();
-      } catch (error) {}
+      } catch (error) {
+        Pop.toast(error.message, "error");
+      }
     });
     return {
-      appState: computed(() => AppState),
+      billboards: computed(() => AppState.billboards),
     };
   },
 };

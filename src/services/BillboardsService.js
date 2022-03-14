@@ -9,7 +9,7 @@ class BillboardsService {
     async getBillboards() {
         const res = await api.get('api/ads')
         AppState.billboards = res.data
-        logger.log(AppState.billboards)
+        logger.log("Ads are...", AppState.billboards)
     }
 }
 

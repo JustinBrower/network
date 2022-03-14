@@ -1,7 +1,6 @@
 <template>
   <div>
-    <img :src="billboard.tall" alt="billboard" />
-    <p>{{ billboard.title }}</p>
+    <img :src="billboards.banner" alt="billboard" />
   </div>
 </template>
 
@@ -9,14 +8,16 @@
 <script>
 import { computed } from "@vue/reactivity";
 import { AppState } from "../AppState";
+import { logger } from "../utils/Logger";
 export default {
   props: {
-    billboard: {
+    billboards: {
       type: Object,
       required: true,
     },
   },
   setup(props) {
+    // logger.log(props.billboards.banner);
     return {
       billboards: computed(() => AppState.billboards),
     };

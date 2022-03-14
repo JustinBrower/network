@@ -15,7 +15,7 @@ export default {
       required: true,
     },
   },
-  setup() {
+  setup(props) {
     return {
       posts: computed(() => AppState.posts),
       account: computed(() => AppState.account),

@@ -13,6 +13,8 @@ class PostsService {
     async getAllPosts() {
         const res = await api.get('api/posts')
         AppState.posts = res.data.posts
+        AppState.newerPage = res.data.newer
+        AppState.olderPage = res.data.older
         logger.log("Posts are...", AppState.posts)
         logger.log('Account is...', AppState.account)
     }
@@ -42,6 +44,13 @@ class PostsService {
 
     async setLike(id) {
         await api.post('api/posts/' + id + '/like')
+    }
+
+    async changePage(page) {
+        const res = await api.get(page)
+        AppState.posts = res.data.posts
+        AppState.newerPage = res.data.newer
+        AppState.olderPage = res.data.older
     }
 
 }

@@ -7,10 +7,7 @@
       <div class="col-6">
         <Create />
       </div>
-      <div class="col-3">
-        <div class="row" v-for="b in billboards" :key="b.index"></div>
-        <Billboard :billboard="b" />
-      </div>
+      <div class="col-3"></div>
     </div>
     <div
       class="row p-3 d-flex justify-content-center"
@@ -19,6 +16,23 @@
     >
       <Post :post="p" />
     </div>
+  </div>
+
+  <div>
+    <button
+      :disabled="!older"
+      @click="changePage(newer)"
+      class="btn btn-outline-danger me-2"
+    >
+      Previous
+    </button>
+    <button
+      v-if="newer"
+      @click="changePage(older)"
+      class="btn btn-outline-danger"
+    >
+      Next
+    </button>
   </div>
 </template>
 
@@ -40,8 +54,16 @@ export default {
       }
     });
     return {
+      async changePage(page) {
+        try {
+          await postsService.changePage(page);
+        } catch (error) {
+          Pop.toast(error.message, "error");
+        }
+      },
       posts: computed(() => AppState.posts),
-      billboards: computed(() => AppState.billboards),
+      newer: computed(() => AppState.newerPage),
+      older: computed(() => AppState.olderPage),
     };
   },
 };
