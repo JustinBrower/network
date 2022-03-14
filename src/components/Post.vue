@@ -58,6 +58,7 @@ import { computed } from "@vue/reactivity";
 import { postsService } from "../services/PostsService";
 import { AppState } from "../AppState";
 import Pop from "../utils/Pop";
+import { watchEffect } from "@vue/runtime-core";
 export default {
   props: {
     post: {
@@ -66,12 +67,22 @@ export default {
     },
   },
   setup(props) {
+    watchEffect(() => {
+      props.post.likes;
+    });
     return {
       async deletePost() {
         try {
           await postsService.deletePost(props.post.id);
         } catch (error) {
           Pop.toast(error.message, error);
+        }
+      },
+      async setLike() {
+        try {
+          await postsService.setLike(props.post.id);
+        } catch (error) {
+          Pop.toast(error.message, "error");
         }
       },
       account: computed(() => AppState.account),

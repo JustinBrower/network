@@ -1,21 +1,23 @@
 <template>
-  <div class="about text-center">
-    <h1>Welcome {{ account.name }}</h1>
-    <img class="rounded" :src="account.picture" alt="" />
-    <p>{{ account.email }}</p>
+  <div class="container-fluid p-0">
+    <div class="about text-center">
+      <h1>Welcome {{ account.name }}</h1>
+      <img class="rounded" :src="account.picture" alt="" />
+      <p>{{ account.email }}</p>
 
-    <div class="row text-center p-3">
-      <form @submit.prevent="editAccount">
-        <label class="p-1" for="bio">Bio </label>
-        <input v-model="editable.bio" type="text" name="bio" />
-        <label class="p-1" for="email">Name</label>
-        <input v-model="editable.name" type="text" name="name" />
-        <label class="p-1" for="image">Image</label>
-        <input v-model="editable.picture" type="text" name="image" />
-        <div class="p-2 text-center">
-          <button class="btn btn-info">Edit Profile</button>
-        </div>
-      </form>
+      <div class="row text-center p-3">
+        <form @submit.prevent="editAccount">
+          <label class="p-1" for="bio">Bio </label>
+          <input v-model="editable.bio" type="text" name="bio" />
+          <label class="p-1" for="email">Name</label>
+          <input v-model="editable.name" type="text" name="name" />
+          <label class="p-1" for="image">Image</label>
+          <input v-model="editable.picture" type="text" name="image" />
+          <div class="p-2 text-center">
+            <button class="btn btn-info">Edit Profile</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </template>

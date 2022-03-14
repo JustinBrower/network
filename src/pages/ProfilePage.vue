@@ -7,7 +7,9 @@
       <div class="col-6">
         <Create v-if="account.id == $route.params.creatorId" />
       </div>
-      <div class="col-3"></div>
+      <div class="col-3">
+        {{ profile.name }}
+      </div>
     </div>
     <div class="row p-3 justify-content-center" v-for="p in posts" :key="p.id">
       <Post :post="p" />
@@ -23,6 +25,7 @@ import Pop from "../utils/Pop";
 import { AppState } from "../AppState";
 import { useRoute } from "vue-router";
 import { logger } from "../utils/Logger";
+import { profileService } from "../services/ProfileService";
 export default {
   setup() {
     const route = useRoute();
@@ -31,6 +34,7 @@ export default {
         try {
           logger.log("route.params is...", route.params.creatorId);
           await postsService.getPostsById(route.params.creatorId);
+          await profileService.getProfileById(route.params.creatorId);
         } catch (error) {
           Pop.toast(error.message, "error");
         }
@@ -39,6 +43,7 @@ export default {
     return {
       posts: computed(() => AppState.posts),
       account: computed(() => AppState.account),
+      profile: computed(() => AppState.profile),
     };
   },
 };
