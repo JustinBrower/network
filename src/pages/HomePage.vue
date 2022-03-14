@@ -46,6 +46,7 @@ import { logger } from "../utils/Logger";
 import { postsService } from "../services/PostsService";
 import { AppState } from "../AppState";
 import Pop from "../utils/Pop";
+import { accountService } from "../services/AccountService";
 export default {
   name: "Home",
   setup() {

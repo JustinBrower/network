@@ -62,7 +62,7 @@ class PostsService {
     async search(query) {
         logger.log("query is...", query)
         const res = await api.get('/api/posts' + '?query=' + query)
-        AppState.posts = res.data
+        AppState.posts = res.data.posts
 
     }
 }

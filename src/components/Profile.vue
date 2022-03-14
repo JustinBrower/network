@@ -24,7 +24,7 @@
         </div>
       </div>
       <div class="col-4 text-center">
-        <!-- A tags don't work, they have 0 width and I don't know how to fix it -->
+        <!-- a tags don't work, they have 0 width and I don't know how to fix it -->
         <a :href="profile.resume">
           <div
             v-if="profile.resume != ''"
@@ -68,10 +68,6 @@ export default {
 
 
 <style lang="scss" scoped>
-// .profile-height {
-//   height: 15vh;
-// }
-
 .hover {
   cursor: pointer;
 }
