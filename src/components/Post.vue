@@ -1,33 +1,56 @@
 <template>
-  <div class="post-size bg-light justify-content-center">
-    <router-link
-      :to="{ name: 'Profile', params: { creatorId: post.creatorId } }"
-    >
-      <div class="col-4">
-        <img
-          class="profile-pic pe-2"
-          :src="post.creator.picture"
-          alt="profile_picture"
-        />
-        <p>{{ post.creator.name }}</p>
-      </div>
-    </router-link>
-
-    <div class="d-flex col-8 align-items-top justify-content-center">
-      <img class="img-fluid" :src="post.imgUrl" alt="" />
-      <div
-        v-if="account.id == post.creatorId"
-        @click="deletePost"
-        class="mdi mdi-trash-can"
-      ></div>
-      <p>{{ post.body }}</p>
-      <div class="d-flex justify-content-end pe-4">
-        <p class="mdi mdi-heart pe-1"></p>
-        <p>{{ post.likes.length }}</p>
+  <div
+    v-if="post.imgUrl != null"
+    class="col-12 post-size bg-grey d-flex justify-content-center"
+  >
+    <img class="img-fluid image-post" :src="post.imgUrl" alt="broke :(" />
+  </div>
+  <div class="row">
+    <div class="col-12 d-flex justify-content-center">
+      <div class="post-size bg-light d-flex justify-content-start p-2">
+        <div
+          v-if="account.id == post.creatorId"
+          @click="deletePost"
+          class="mdi mdi-trash-can"
+        ></div>
+        <router-link
+          :to="{ name: 'Profile', params: { creatorId: post.creatorId } }"
+        >
+          <div class="col-4 d-flex justify-content-start">
+            <img
+              class="profile-pic"
+              :src="post.creator.picture"
+              alt="profile_picture"
+            />
+            <p class="p-2">{{ post.creator.name }}</p>
+          </div>
+        </router-link>
+        <div
+          class="d-flex col-8 bg-info align-items-center justify-content-center"
+        >
+          <p>{{ post.body }}</p>
+          <div
+            @click="setLike"
+            class="
+              p-1
+              likes-size
+              d-flex
+              justify-content-end
+              align-items-end
+              hoverable
+            "
+          >
+            <p class="mdi mdi-heart">
+              {{ post.likes.length }}
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
+
+
 
 
 <script>
@@ -61,7 +84,7 @@ export default {
 <style lang="scss" scoped>
 .profile-pic {
   width: 100px;
-  height: auto;
+  height: 100px;
 }
 .post-size {
   height: 25vh;
@@ -69,6 +92,10 @@ export default {
 }
 .image-post {
   width: auto;
+  height: 100%;
+}
+.likes-size {
+  width: 3rem;
   height: auto;
 }
 </style>

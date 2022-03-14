@@ -1,14 +1,16 @@
 <template>
-  <div class="container-fluid">
-    <div class="row justify-content-center">
+  <div class="container-fluid bg-primary">
+    <div class="row d-flex justify-content-center">
       <div class="col-6">
         <Create v-if="account.id == $route.params.creatorId" />
       </div>
     </div>
-    <div class="row">
-      <div v-for="p in posts" :key="p.id" class="p-3 justify-content-center">
-        <Post :post="p" />
-      </div>
+    <div
+      class="row p-3 d-flex justify-content-center"
+      v-for="p in posts"
+      :key="p.id"
+    >
+      <Post :post="p" />
     </div>
   </div>
 </template>

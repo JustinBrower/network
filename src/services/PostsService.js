@@ -29,15 +29,18 @@ class PostsService {
     }
 
     async createPost(newPost) {
-        logger.log("New post is...", newPost)
         await api.post('api/posts', newPost)
         AppState.posts.push(newPost)
+        Pop.toast("Post Created1")
     }
 
     async deletePost(id) {
-        logger.log("Doomed post id is...", id)
         await api.delete('api/posts/' + id)
         Pop.toast("Post Delorted")
+    }
+
+    async setLike(id) {
+        await api.post('api/posts/' + id + '/like')
     }
 
 }
