@@ -45,6 +45,7 @@
             </p>
           </div>
         </div>
+        <!-- <p>{{ post.createdAt }}</p> -->
       </div>
     </div>
   </div>
