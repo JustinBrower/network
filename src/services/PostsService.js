@@ -46,6 +46,8 @@ class PostsService {
         await api.post('api/posts/' + id + '/like')
         let realPost = AppState.posts.find(p => p.id == id)
         realPost.likes + 1
+        AppState.posts.filter(p => p.id == id)
+        AppState.posts.push(realPost)
         // figure this out
         Pop.toast("Post is liked!")
     }

@@ -2,7 +2,7 @@
   <div class="container-fluid p-0 profile-height">
     <div class="d-flex justify-content-start mt-1">
       <div class="d-flex justify-content-start">
-        <img :src="profile.picture" alt="Profile_Picture" />
+        <img class="profile-pic" :src="profile.picture" alt="Profile_Picture" />
       </div>
       <p class="ps-2">| {{ profile.name }}</p>
       <p class="ps-2">| {{ profile.email }}</p>
@@ -75,5 +75,10 @@ export default {
 .a-tag {
   height: 20px;
   width: 20px;
+}
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
 }
 </style>

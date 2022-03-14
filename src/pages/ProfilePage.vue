@@ -15,6 +15,23 @@
       <Post :post="p" />
     </div>
   </div>
+
+  <div>
+    <button
+      :disabled="!newer"
+      @click="changePage(newer)"
+      class="btn btn-outline-danger me-2"
+    >
+      Previous
+    </button>
+    <button
+      :disabled="!older"
+      @click="changePage(older)"
+      class="btn btn-outline-danger"
+    >
+      Next
+    </button>
+  </div>
 </template>
 
 
@@ -41,9 +58,18 @@ export default {
       }
     });
     return {
+      async changePage(page) {
+        try {
+          await postsService.changePage(page);
+        } catch (error) {
+          Pop.toast(error.message, "error");
+        }
+      },
       posts: computed(() => AppState.posts),
       account: computed(() => AppState.account),
       profile: computed(() => AppState.profile),
+      newer: computed(() => AppState.newerPage),
+      older: computed(() => AppState.olderPage),
     };
   },
 };
@@ -51,4 +77,8 @@ export default {
 
 
 <style lang="scss" scoped>
+.profile-pic {
+  width: 100px;
+  height: 100px;
+}
 </style>

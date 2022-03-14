@@ -22,8 +22,6 @@
     </div>
   </div>
 
-  CHECKPOINT
-
   <div>
     <button
       :disabled="!newer"
@@ -55,6 +53,7 @@ export default {
     watchEffect(() => {
       AppState.account;
       AppState.profile;
+      AppState.posts;
     });
     onMounted(async () => {
       try {
