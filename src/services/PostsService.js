@@ -32,8 +32,9 @@ class PostsService {
     }
 
     async createPost(newPost) {
-        await api.post('api/posts', newPost)
-        AppState.posts.push(newPost)
+        let res = await api.post('api/posts', newPost)
+        AppState.posts = [res.data, ...AppState.posts]
+        // AppState.posts.push(newPost)
         Pop.toast("Post Created1")
     }
 

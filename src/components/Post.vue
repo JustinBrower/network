@@ -13,9 +13,7 @@
           @click="deletePost"
           class="mdi mdi-trash-can"
         ></div>
-        <router-link
-          :to="{ name: 'Profile', params: { creatorId: post.creatorId } }"
-        >
+        <router-link :to="{ name: 'Profile', params: { id: post.creatorId } }">
           <div class="col-4 d-flex justify-content-start">
             <img
               class="profile-pic"
@@ -45,7 +43,7 @@
             </p>
           </div>
         </div>
-        <!-- <p>{{ post.createdAt }}</p> -->
+        <p>{{ new Date(post.createdAt).toLocaleString() }}</p>
       </div>
     </div>
   </div>

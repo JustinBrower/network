@@ -47,9 +47,8 @@ export default {
     onMounted(async () => {
       if (route.name == "Profile") {
         try {
-          logger.log("route.params is...", route.params.creatorId);
-          await postsService.getPostsById(route.params.creatorId);
-          await profileService.getProfileById(route.params.creatorId);
+          await postsService.getPostsById(route.params.id);
+          await profileService.getProfileById(route.params.id);
         } catch (error) {
           Pop.toast(error.message, "error");
         }

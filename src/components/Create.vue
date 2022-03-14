@@ -3,6 +3,7 @@
     <div>
       <label for="Text" class="form-label">Text Here...</label>
       <input
+        placeholder="Text..."
         v-model="state.created.body"
         type="text"
         required
@@ -12,7 +13,12 @@
 
     <div>
       <label for="Img" class="form-label">URL Here...</label>
-      <input v-model="state.created.imgUrl" type="text" class="form-control" />
+      <input
+        placeholder="ImageUrl..."
+        v-model="state.created.imgUrl"
+        type="text"
+        class="form-control"
+      />
     </div>
     <button class="btn btn-info mt-2">Create</button>
   </form>

@@ -21,7 +21,7 @@ export default {
   setup(props) {
     logger.log(props.billboards.banner);
     return {
-      billboards: computed(() => AppState.billboards),
+      //   billboards: computed(() => AppState.billboards),
     };
   },
 };
